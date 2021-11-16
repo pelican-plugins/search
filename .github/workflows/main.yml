@@ -9,6 +9,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      - name: Validate links in Markdown files
+        uses: JustinBeckwith/linkinator-action@v1
+        with:
+          retry: true
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
