@@ -1,0 +1,63 @@
+[tool.poetry]
+name = "pelican-search"
+version = "1.0.0"
+description = "Pelican plugin that indexes content and enables static site searches"
+authors = ["Justin Mayer <entroP@gmail.com>"]
+license = "AGPL-3.0"
+readme = "README.md"
+keywords = ["pelican", "plugin", "search", "index"]
+repository = "https://github.com/pelican-plugins/search"
+documentation = "https://docs.getpelican.com"
+packages = [
+    { include = "pelican" },
+]
+
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "Framework :: Pelican",
+    "Framework :: Pelican :: Plugins",
+    "Intended Audience :: End Users/Desktop",
+    "Operating System :: OS Independent",
+    "Topic :: Internet :: WWW/HTTP",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+[tool.poetry.urls]
+"Funding" = "https://donate.getpelican.com/"
+"Issue Tracker" = "https://github.com/pelican-plugins/search/issues"
+
+[tool.poetry.dependencies]
+python = ">=3.6.2,<4.0"
+pelican = ">=4.5"
+markdown = {version = ">=3.2", optional = true}
+
+[tool.poetry.dev-dependencies]
+black = {version = "^21.10b0", allow-prereleases = true}
+flake8 = "^4.0"
+flake8-black = "^0.2"
+invoke = "^1.3"
+isort = "^5.4"
+livereload = "^2.6"
+markdown = "^3.2"
+
+[tool.poetry.extras]
+markdown = ["markdown"]
+
+[tool.autopub]
+project-name = "Search"
+git-username = "botpub"
+git-email = "botpub@autopub.rocks"
+append-github-contributor = true
+
+[tool.isort]
+# Maintain compatibility with Black
+profile = "black"
+multi_line_output = 3
+
+# Sort imports within their section independent of the import type
+force_sort_within_sections = true
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
