@@ -58,17 +58,16 @@ To use the default `main` selector, in each of your theme’s relevant template 
 
 For more information, refer to [Stork’s documentation on HTML tag selection](https://stork-search.net/docs/html).
 
-### `SEARCH_ADDITIONAL_OPTIONS = ""`
+### `SEARCH_INPUT_OPTIONS = ""`
 
 Additional [Input Options](https://stork-search.net/docs/config-ref) can be added here in key value style.
 
 **Example**:
 
 ```python
-SEARCH_ADDITIONAL_OPTIONS = f'''
-stemming = "German"
-url_prefix = "{SITEURL}"
-'''
+SEARCH_INPUT_OPTIONS = f"""stemming = "German"
+                url_prefix = "{SITEURL}"
+"""
 ```
 
 Don't add `base_directory` and `html_selector` as they are already added by default.
