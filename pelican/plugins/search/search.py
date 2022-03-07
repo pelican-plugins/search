@@ -30,6 +30,7 @@ class SearchSettingsGenerator:
         self.tpages = settings.get("TEMPLATE_PAGES")
         self.search_mode = settings.get("SEARCH_MODE", "output")
         self.html_selector = settings.get("SEARCH_HTML_SELECTOR", "main")
+        self.input_options = settings.get("SEARCH_INPUT_OPTIONS", "")
 
     def build_search_index(self, search_settings_path):
         if not which("stork"):
@@ -101,6 +102,7 @@ class SearchSettingsGenerator:
                 [input]
                 base_directory = "{base_dir}"
                 html_selector = "{self.html_selector}"
+                {self.input_options}
                 {input_files}
             """
         )

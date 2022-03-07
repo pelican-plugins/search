@@ -5,11 +5,9 @@
 
 This plugin generates an index for searching content on a Pelican-powered site.
 
-
 ## Why would you want this?
 
 Static sites are, well, static… and thus usually don’t have an application server component that could be used to power site search functionality. Rather than give up control (and privacy) to third-party search engine corporations, this plugin adds elegant and self-hosted site search capability to your site. Last but not least, searches are **really** fast. 🚀
-
 
 ## Installation
 
@@ -26,7 +24,6 @@ Confirm that Stork is properly installed via:
 Once Stork has been successfully installed and tested, this plugin can be installed via:
 
     python -m pip install pelican-search
-
 
 ## Settings
 
@@ -61,6 +58,20 @@ To use the default `main` selector, in each of your theme’s relevant template 
 
 For more information, refer to [Stork’s documentation on HTML tag selection](https://stork-search.net/docs/html).
 
+### `SEARCH_ADDITIONAL_OPTIONS = ""`
+
+Additional [Input Options](https://stork-search.net/docs/config-ref) can be added here in key value style.
+
+**Example**:
+
+```python
+SEARCH_ADDITIONAL_OPTIONS = f'''
+stemming = "German"
+url_prefix = "{SITEURL}"
+'''
+```
+
+Don't add `base_directory` and `html_selector` as they are already added by default.
 
 ## Static Assets
 
@@ -84,7 +95,11 @@ Add the Stork CSS before the closing `</head>` tag in your theme’s base templa
 If your theme supports dark mode, you may want to also add Stork’s dark CSS file:
 
 ```html
-<link rel="stylesheet" media="screen and (prefers-color-scheme: dark)" href="https://files.stork-search.net/dark.css">
+<link
+    rel="stylesheet"
+    media="screen and (prefers-color-scheme: dark)"
+    href="https://files.stork-search.net/dark.css"
+/>
 ```
 
 #### JavaScript
@@ -94,7 +109,7 @@ Add the following script tags to your theme’s base template, just before your 
 ```html
 <script src="https://files.stork-search.net/releases/v1.2.1/stork.js"></script>
 <script>
-    stork.register("sitesearch", "{{ SITEURL }}/search-index.st")
+    stork.register("sitesearch", "{{ SITEURL }}/search-index.st");
 </script>
 ```
 
@@ -150,7 +165,6 @@ Search: <input data-stork="sitesearch" />
 
 For more information regarding this topic, see the [Stork search interface documentation](https://stork-search.net/docs/interface).
 
-
 ## Deployment
 
 Ensure your production web server serves the WebAssembly file with the `application/wasm` MIME type. For folks using older versions of Nginx, that might look like the following:
@@ -170,7 +184,6 @@ http {
 
 For other self-hosting considerations, see the [Stork self-hosting documentation](https://stork-search.net/docs/self-hosting).
 
-
 ## Contributing
 
 Contributions are welcome and much appreciated. Every little bit helps. You can contribute by improving the documentation, adding missing features, and fixing bugs. You can also help out by reviewing and commenting on [existing issues][].
@@ -178,4 +191,4 @@ Contributions are welcome and much appreciated. Every little bit helps. You can 
 To start contributing to this plugin, review the [Contributing to Pelican][] documentation, beginning with the **Contributing Code** section.
 
 [existing issues]: https://github.com/pelican-plugins/search/issues
-[Contributing to Pelican]: https://docs.getpelican.com/en/latest/contribute.html
+[contributing to pelican]: https://docs.getpelican.com/en/latest/contribute.html
