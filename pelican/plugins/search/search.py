@@ -27,6 +27,8 @@ class SearchSettingsGenerator:
         self.output_path = output_path
         self.context = context
         self.content = settings.get("PATH")
+        self.siteurl = settings.get("SITEURL")
+        self.relative_urls = settings.get("RELATIVE_URLS")
         self.tpages = settings.get("TEMPLATE_PAGES")
         self.search_mode = settings.get("SEARCH_MODE", "output")
         self.html_selector = settings.get("SEARCH_HTML_SELECTOR", "main")
@@ -69,10 +71,14 @@ class SearchSettingsGenerator:
                 page_to_index = page.save_as
             if self.search_mode == "source":
                 page_to_index = page.relative_source_path
+            if self.relative_urls:
+                url = page.url
+            else:
+                url = self.siteurl + '/' + page.url
             input_file = f"""
                 [[input.files]]
                 path = "{page_to_index}"
-                url = "{page.url}"
+                url = "{url}"
                 title = "{striptags(page.title)}"
             """
             input_files = "".join([input_files, input_file])
