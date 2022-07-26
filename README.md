@@ -13,11 +13,15 @@ Static sites are, well, static… and thus usually don’t have an application s
 
 ## Installation
 
-This plugin uses [Stork](https://stork-search.net/) to generate a search index. Follow the [Stork installation instructions](https://stork-search.net/docs/install) to install this required command-line tool and ensure it is available within `/usr/local/bin/` or another `$PATH`-accessible location of your choosing. For example, Stork can be installed on macOS via:
+This plugin uses [Stork](https://stork-search.net/) to generate a search index. Follow the [Stork installation instructions](https://stork-search.net/docs/install) to install this required command-line tool and ensure it is available within `/usr/local/bin/` or another `$PATH`-accessible location of your choosing. For example, Stork can be installed on macOS (Intel) via:
 
-    export STORKVERSION="v1.2.1"
+    export STORKVERSION="v1.5.0"
     wget -O /usr/local/bin/stork https://files.stork-search.net/releases/$STORKVERSION/stork-macos-10-15
     chmod +x /usr/local/bin/stork
+
+For macOS on ARM, install via Homebrew:
+
+    brew install stork-search/stork-tap/stork
 
 Confirm that Stork is properly installed via:
 
@@ -92,7 +96,7 @@ If your theme supports dark mode, you may want to also add Stork’s dark CSS fi
 Add the following script tags to your theme’s base template, just before your closing `</body>` tag, which will load the most recent Stork module along with the matching WASM binary:
 
 ```html
-<script src="https://files.stork-search.net/releases/v1.2.1/stork.js"></script>
+<script src="https://files.stork-search.net/releases/v1.5.0/stork.js"></script>
 <script>
     stork.register("sitesearch", "{{ SITEURL }}/search-index.st")
 </script>
@@ -103,10 +107,11 @@ Add the following script tags to your theme’s base template, just before your 
 Download the Stork JavaScript, WebAssembly, and CSS files and put them in your theme’s respective static asset directories:
 
 ```shell
-export STORKVERSION="v1.2.1"
+export STORKVERSION="v1.5.0"
 cd $YOUR-THEME-DIR
 mkdir -p static/{js,css}
 wget -O static/js/stork.js https://files.stork-search.net/releases/$STORKVERSION/stork.js
+wget -O static/js/stork.js.map https://files.stork-search.net/releases/$STORKVERSION/stork.js.map
 wget -O static/js/stork.wasm https://files.stork-search.net/releases/$STORKVERSION/stork.wasm
 wget -O static/css/stork.css https://files.stork-search.net/basic.css
 wget -O static/css/stork-dark.css https://files.stork-search.net/dark.css
