@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pelican-search"
-version = "1.0.0"
+version = "1.0.1"
 description = "Pelican plugin that indexes content and enables static site searches"
 authors = ["Justin Mayer <entroP@gmail.com>"]
 license = "AGPL-3.0"
