@@ -10,6 +10,11 @@ This plugin generates an index for searching content on a Pelican-powered site.
 
 Static sites are, well, static… and thus usually don’t have an application server component that could be used to power site search functionality. Rather than give up control (and privacy) to third-party search engine corporations, this plugin adds elegant and self-hosted site search capability to your site. Last but not least, searches are **really** fast. 🚀
 
+Want to see just _how_ fast? Try it out for yourself. Following are some sites that use this plugin:
+
+* [Justin Mayer](https://justinmayer.com)
+* [Open Source Alternatives](https://opensourcealternatives.org)
+
 
 ## Installation
 
