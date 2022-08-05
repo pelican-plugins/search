@@ -37,6 +37,7 @@ jobs:
 
   deploy:
     name: Deploy
+    environment: Deployment
     needs: lint
     runs-on: ubuntu-latest
     if: ${{ github.ref=='refs/heads/main' && github.event_name!='pull_request' }}
