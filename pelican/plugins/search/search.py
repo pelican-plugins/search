@@ -7,13 +7,12 @@ A Pelican plugin to generate an index for static site searches.
 Copyright (c) Justin Mayer
 """
 
-import logging
-import os.path
-import subprocess
-
 from codecs import open
 from inspect import cleandoc
+import logging
+import os.path
 from shutil import which
+import subprocess
 
 from jinja2.filters import do_striptags as striptags
 
@@ -23,10 +22,9 @@ logger = logging.getLogger(__name__)
 
 
 class SearchSettingsGenerator:
-
     def __init__(self, context, settings, path, theme, output_path, *null):
 
-        self.output_path = output_path.replace(os.sep, '/')
+        self.output_path = output_path.replace(os.sep, "/")
         self.context = context
         self.content = settings.get("PATH")
         self.tpages = settings.get("TEMPLATE_PAGES")
@@ -51,8 +49,7 @@ class SearchSettingsGenerator:
                 check=True,
             )
         except subprocess.CalledProcessError as e:
-            raise Exception(
-                "".join(["Search plugin reported ", e.stdout, e.stderr]))
+            raise Exception("".join(["Search plugin reported ", e.stdout, e.stderr]))
 
         return output.stdout
 
@@ -115,8 +112,7 @@ class SearchSettingsGenerator:
         # Build the search index
         build_log = self.build_search_index(search_settings_path)
         build_log = "".join(["Search plugin reported ", build_log])
-        logger.error(build_log) if "error" in build_log else logger.debug(
-            build_log)
+        logger.error(build_log) if "error" in build_log else logger.debug(build_log)
 
 
 def get_generators(generators):
