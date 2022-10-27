@@ -16,7 +16,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: "3.x"
+          python-version: "3.9"
       - name: Set Poetry cache
         uses: actions/cache@v2
         id: poetry-cache
@@ -37,6 +37,7 @@ jobs:
 
   deploy:
     name: Deploy
+    environment: Deployment
     needs: lint
     runs-on: ubuntu-latest
     if: ${{ github.ref=='refs/heads/main' && github.event_name!='pull_request' }}
@@ -46,12 +47,12 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v2
         with:
-          python-version: "3.x"
+          python-version: "3.9"
       - name: Check release
         id: check_release
         run: |
           python -m pip install --upgrade pip
-          python -m pip install poetry githubrelease httpx==0.16.1 autopub
+          python -m pip install poetry githubrelease httpx==0.18.2 autopub
           echo "##[set-output name=release;]$(autopub check)"
       - name: Publish
         if: ${{ steps.check_release.outputs.release=='' }}

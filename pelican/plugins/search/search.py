@@ -73,7 +73,7 @@ class SearchSettingsGenerator:
             input_file = f"""
                 [[input.files]]
                 path = "{page_to_index}"
-                url = "{page.url}"
+                url = "/{page.url}"
                 title = "{striptags(page.title)}"
             """
             input_files = "".join([input_files, input_file])
