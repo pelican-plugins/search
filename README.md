@@ -70,6 +70,21 @@ To use the default `main` selector, in each of your theme’s relevant template 
 
 For more information, refer to [Stork’s documentation on HTML tag selection](https://stork-search.net/docs/html).
 
+### `SEARCH_EXCLUDE_HTML_SELECTOR`
+
+To exclude certain types of content from the search index use his setting.
+
+For example to exclude all image content specify:
+
+```python
+SEARCH_EXCLUDE_HTML_SELECTOR = [
+    "img"
+]
+```
+
+You can specify more than one selector to exclude which is why this setting is Python list.
+
+For more information, refer to [Stork’s documentation on excluding selectors](https://stork-search.net/docs/config-ref#exclude_html_selector).
 
 ## Static Assets
 
