@@ -1,6 +1,6 @@
 # Search: A Plugin for Pelican
 
-[![Build Status](https://img.shields.io/github/workflow/status/pelican-plugins/search/build)](https://github.com/pelican-plugins/search/actions)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/pelican-plugins/search/main.yml?branch=main)](https://github.com/pelican-plugins/search/actions)
 [![PyPI Version](https://img.shields.io/pypi/v/pelican-search)](https://pypi.org/project/pelican-search/)
 
 This plugin generates an index for searching content on a Pelican-powered site.
