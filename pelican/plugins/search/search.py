@@ -24,7 +24,7 @@ logger = logging.getLogger(__name__)
 class SearchSettingsGenerator:
     def __init__(self, context, settings, path, theme, output_path, *null):
 
-        self.output_path = output_path
+        self.output_path = output_path.replace(os.sep, "/")
         self.context = context
         self.content = settings.get("PATH")
         self.tpages = settings.get("TEMPLATE_PAGES")
