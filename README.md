@@ -41,6 +41,10 @@ Once Stork has been successfully installed and tested, this plugin can be instal
 
 This plugin’s behavior can be customized via Pelican settings. Those settings, and their default values, follow below.
 
+Remember to add search to activated PLUGINS:
+
+`PLUGINS = ["plugin-1","plugin-2","search"]`
+
 ### `SEARCH_MODE = "output"`
 
 In addition to plain-text files, Stork can recognize and index HTML and Markdown-formatted content. The default behavior of this plugin is to index generated HTML files, since Stork is good at extracting content from tags, scripts, and styles. But that mode may require a slight theme modification that isn’t necessary when indexing Markdown source (see `SEARCH_HTML_SELECTOR` setting below). That said, indexing Markdown means that markup information may not be removed from the indexed content and will thus be visible in the search preview results. With that caveat aside, if you want to index Markdown source content files instead of the generated HTML output, you can use: `SEARCH_MODE = "source"`
