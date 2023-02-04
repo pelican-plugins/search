@@ -9,6 +9,7 @@ Copyright (c) Justin Mayer
 
 from codecs import open
 from inspect import cleandoc
+from json import dumps
 import logging
 import os.path
 from shutil import which
@@ -68,13 +69,11 @@ class SearchSettingsGenerator:
                 page_to_index = page.save_as
             if self.search_mode == "source":
                 page_to_index = page.relative_source_path
-            # Escape double quotes in title
-            title = striptags(page.title).replace('"', '\\"')
             input_file = f"""
                 [[input.files]]
                 path = "{page_to_index}"
                 url = "/{page.url}"
-                title = "{title}"
+                title = {dumps(striptags(page.title))}
             """
             input_files = "".join([input_files, input_file])
 
