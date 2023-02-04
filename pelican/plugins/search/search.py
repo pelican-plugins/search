@@ -24,7 +24,6 @@ logger = logging.getLogger(__name__)
 
 class SearchSettingsGenerator:
     def __init__(self, context, settings, path, theme, output_path, *null):
-
         self.output_path = output_path
         self.context = context
         self.content = settings.get("PATH")
