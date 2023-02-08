@@ -69,8 +69,6 @@ class SearchSettingsGenerator:
                 page_to_index = page.save_as
             if self.search_mode == "source":
                 page_to_index = page.relative_source_path
-            # Escape double quotes in title
-            title = striptags(page.title).replace('"', '\\"')
             input_file = f"""
                 [[input.files]]
                 path = "{page_to_index}"
