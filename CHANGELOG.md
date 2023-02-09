@@ -1,6 +1,11 @@
 CHANGELOG
 =========
 
+1.0.2 - 2023-02-09
+------------------
+
+Improve handling of quotation marks and other special characters in post titles.
+
 1.0.1 - 2022-08-05
 ------------------
 
