@@ -1,6 +1,6 @@
 # Search: A Plugin for Pelican
 
-[![Build Status](https://img.shields.io/github/workflow/status/pelican-plugins/search/build)](https://github.com/pelican-plugins/search/actions)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/pelican-plugins/search/main.yml?branch=main)](https://github.com/pelican-plugins/search/actions)
 [![PyPI Version](https://img.shields.io/pypi/v/pelican-search)](https://pypi.org/project/pelican-search/)
 
 This plugin generates an index for searching content on a Pelican-powered site.
@@ -33,6 +33,9 @@ Confirm that Stork is properly installed via:
 Once Stork has been successfully installed and tested, this plugin can be installed via:
 
     python -m pip install pelican-search
+
+
+If you are using Pelican 4.5+ with namespace plugins and don’t have a `PLUGINS` setting defined in your configuration, then the Search plugin should be auto-discovered with no further action required. If, on the other hand, you _do_ have a `PLUGINS` setting defined (because you also use legacy plugins or because you want to be able to selectively disable installed plugins), then you must manually add `search` to the `PLUGINS` list, as described in the [Pelican plugins documentation][].
 
 ## Settings
 
@@ -199,5 +202,6 @@ Contributions are welcome and much appreciated. Every little bit helps. You can 
 
 To start contributing to this plugin, review the [Contributing to Pelican][] documentation, beginning with the **Contributing Code** section.
 
+[Pelican plugins documentation]: https://docs.getpelican.com/en/latest/plugins.html
 [existing issues]: https://github.com/pelican-plugins/search/issues
 [contributing to pelican]: https://docs.getpelican.com/en/latest/contribute.html

@@ -9,6 +9,7 @@ Copyright (c) Justin Mayer
 
 from codecs import open
 from inspect import cleandoc
+from json import dumps
 import logging
 import os.path
 from shutil import which
@@ -23,7 +24,6 @@ logger = logging.getLogger(__name__)
 
 class SearchSettingsGenerator:
     def __init__(self, context, settings, path, theme, output_path, *null):
-
         self.output_path = output_path
         self.context = context
         self.content = settings.get("PATH")
@@ -74,7 +74,7 @@ class SearchSettingsGenerator:
                 [[input.files]]
                 path = "{page_to_index}"
                 url = "/{page.url}"
-                title = "{striptags(page.title)}"
+                title = {dumps(striptags(page.title))}
             """
             input_files = "".join([input_files, input_file])
 
