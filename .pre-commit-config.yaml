@@ -21,12 +21,12 @@ repos:
       - id: trailing-whitespace
 
   - repo: https://github.com/psf/black
-    rev: 23.1.0
+    rev: 23.3.0
     hooks:
       - id: black
 
   - repo: https://github.com/PyCQA/flake8
-    rev: 5.0.4
+    rev: 6.0.0
     hooks:
       - id: flake8
         additional_dependencies: [Flake8-pyproject]
@@ -43,7 +43,7 @@ repos:
         args: [--py37-plus]
 
   - repo: https://github.com/hakancelikdev/unimport
-    rev: 0.12.3
+    rev: 0.16.0
     hooks:
       - id: unimport
         args: [--remove, --include-star-import]
