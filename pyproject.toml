@@ -36,6 +36,7 @@ markdown = {version = ">=3.2", optional = true}
 black = "^23"
 flake8 = "^5.0"
 flake8-black = "^0.3"
+flake8-pyproject = "^1.2"
 invoke = "^2.0"
 isort = "^5.4"
 livereload = "^2.6"
@@ -48,6 +49,10 @@ markdown = ["markdown"]
 project-name = "Search"
 git-username = "botpub"
 git-email = "botpub@autopub.rocks"
+
+[tool.flake8]
+extend-ignore = ["E203"]
+max-line-length = 88
 
 [tool.isort]
 profile = "black"
