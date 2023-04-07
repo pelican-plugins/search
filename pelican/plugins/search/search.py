@@ -7,14 +7,13 @@ A Pelican plugin to generate an index for static site searches.
 Copyright (c) Justin Mayer
 """
 
-import logging
-import subprocess
 from json import dumps
+import logging
 from pathlib import Path
 from shutil import which
+import subprocess
 from typing import Dict, List
 
-import rtoml
 from jinja2.filters import do_striptags as striptags
 import rtoml
 
@@ -88,7 +87,6 @@ class SearchSettingsGenerator:
         return output.stdout
 
     def generate_stork_settings(self, search_settings_path: Path):
-
         self.input_options["files"] = self.get_input_files()
 
         search_settings = {"input": self.input_options}

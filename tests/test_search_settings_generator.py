@@ -140,7 +140,6 @@ class TestSearchSettingsGenerator:
 
     class TestGenerateStorkSettings:
         def test_output_options_set(self, mocker: MockerFixture):
-
             rtoml_patch = mocker.patch("pelican.plugins.search.rtoml.dump")
             mocker.patch(
                 "pelican.plugins.search.SearchSettingsGenerator.get_input_files",
@@ -162,7 +161,6 @@ class TestSearchSettingsGenerator:
             }
 
         def test_output_options_not_set(self, mocker: MockerFixture):
-
             rtoml_patch = mocker.patch("pelican.plugins.search.rtoml.dump")
             mocker.patch(
                 "pelican.plugins.search.SearchSettingsGenerator.get_input_files",
