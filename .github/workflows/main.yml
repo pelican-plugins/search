@@ -4,7 +4,7 @@ on: [push, pull_request]
 
 jobs:
   lint:
-    name: Lint
+    name: Lint and Test
     runs-on: ubuntu-latest
 
     steps:
@@ -28,7 +28,9 @@ jobs:
           poetry install --no-interaction
 
       - name: Run linters
-        run: poetry run invoke lint --diff
+        run: poetry run invoke lint
+      - name: Run tests
+        run: poetry run invoke tests
 
   deploy:
     name: Deploy
