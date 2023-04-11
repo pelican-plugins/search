@@ -40,7 +40,7 @@ repos:
     rev: v3.3.1
     hooks:
       - id: pyupgrade
-        args: [--py37-plus]
+        args: [--py38-plus]
 
   - repo: https://github.com/hakancelikdev/unimport
     rev: 0.12.3
