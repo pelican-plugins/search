@@ -5,14 +5,16 @@
 
 This plugin generates an index for searching content on a Pelican-powered site.
 
+
 ## Why would you want this?
 
 Static sites are, well, static… and thus usually don’t have an application server component that could be used to power site search functionality. Rather than give up control (and privacy) to third-party search engine corporations, this plugin adds elegant and self-hosted site search capability to your site. Last but not least, searches are **really** fast. 🚀
 
 Want to see just _how_ fast? Try it out for yourself. Following are some sites that use this plugin:
 
-* [Justin Mayer](https://justinmayer.com)
-* [Open Source Alternatives](https://opensourcealternatives.org)
+-   [Justin Mayer](https://justinmayer.com)
+-   [Open Source Alternatives](https://opensourcealternatives.org)
+
 
 ## Installation
 
@@ -34,7 +36,6 @@ Once Stork has been successfully installed and tested, this plugin can be instal
 
     python -m pip install pelican-search
 
-
 If you are using Pelican 4.5+ with namespace plugins and don’t have a `PLUGINS` setting defined in your configuration, then the Search plugin should be auto-discovered with no further action required. If, on the other hand, you _do_ have a `PLUGINS` setting defined (because you also use legacy plugins or because you want to be able to selectively disable installed plugins), then you must manually add `search` to the `PLUGINS` list, as described in the [Pelican plugins documentation][].
 
 ## Settings
@@ -44,6 +45,7 @@ This plugin’s behavior can be customized via Pelican settings. Those settings,
 ### `STORK_INPUT_OPTIONS = ""`
 
 In addition to plain-text files, Stork can recognize and index HTML and Markdown-formatted content. The default behavior of this plugin is to index generated HTML files, since Stork is good at extracting content from tags, scripts, and styles. But that mode may require a slight theme modification that isn’t necessary when indexing Markdown source (see HTML selector setting below). That said, indexing Markdown means that markup information may not be removed from the indexed content and will thus be visible in the search preview results. With that caveat aside, if you want to index Markdown source content files instead of the generated HTML output, you can set `base_directory` to your content path.
+
 Any other setting then the output path will toggle the plugin to switch to "source" mode.
 
 **Example**:
@@ -54,7 +56,7 @@ STORK_INPUT_OPTIONS = {
 }
 ```
 
-#### Stork HTML selector
+#### Stork HTML Selector
 
 By default, Stork looks for `<main>[…]</main>` tags to determine where your main content is located. If such tags do not already exist in your theme’s template files, you can either (1) add `<main>` tags or (2) change the HTML selector that Stork should look for.
 
@@ -81,7 +83,7 @@ For more information, refer to [Stork’s documentation on HTML tag selection](h
 
 **Example**:
 
-To set it to a different selector, you can set it like this (e.g. primary).
+To set it to a different selector, you can set it like this (e.g. `primary`).
 
 ```python
 STORK_INPUT_OPTIONS = {
@@ -89,7 +91,7 @@ STORK_INPUT_OPTIONS = {
 }
 ```
 
-Additional [Input Options](https://stork-search.net/docs/config-ref) can be added here as a dict.
+Additional [Input Options](https://stork-search.net/docs/config-ref) can be added here as a `dict`.
 
 **Example**:
 
@@ -101,7 +103,7 @@ STORK_INPUT_OPTIONS = {
 
 ### `STORK_OUTPUT_OPTIONS = ""`
 
-[Output Options](https://stork-search.net/docs/config-ref) can be configured as a dict.
+[Output Options](https://stork-search.net/docs/config-ref) can be configured as a `dict`.
 Keep in mind that keys are case sensitive. They mus be lower case.
 
 **Example**:
@@ -230,6 +232,6 @@ Contributions are welcome and much appreciated. Every little bit helps. You can 
 
 To start contributing to this plugin, review the [Contributing to Pelican][] documentation, beginning with the **Contributing Code** section.
 
-[Pelican plugins documentation]: https://docs.getpelican.com/en/latest/plugins.html
+[pelican plugins documentation]: https://docs.getpelican.com/en/latest/plugins.html
 [existing issues]: https://github.com/pelican-plugins/search/issues
-[contributing to pelican]: https://docs.getpelican.com/en/latest/contribute.html
+[Contributing to pelican]: https://docs.getpelican.com/en/latest/contribute.html
