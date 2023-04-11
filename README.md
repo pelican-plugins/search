@@ -38,6 +38,7 @@ Once Stork has been successfully installed and tested, this plugin can be instal
 
 If you are using Pelican 4.5+ with namespace plugins and don’t have a `PLUGINS` setting defined in your configuration, then the Search plugin should be auto-discovered with no further action required. If, on the other hand, you _do_ have a `PLUGINS` setting defined (because you also use legacy plugins or because you want to be able to selectively disable installed plugins), then you must manually add `search` to the `PLUGINS` list, as described in the [Pelican plugins documentation][].
 
+
 ## Settings
 
 This plugin’s behavior can be customized via Pelican settings. Those settings, and their default values, follow below.
@@ -123,6 +124,7 @@ There are two options for serving the necessary JavaScript, WebAssembly, and CSS
 
 The first option is easier to set up. The second option is provided for folks who prefer to self-host everything. After you have decided which option you prefer, follow the relevant section’s instructions below.
 
+
 ### Static Assets — Option 1: Use CDN
 
 #### CSS
@@ -207,6 +209,7 @@ Search: <input data-stork="sitesearch" />
 
 For more information regarding this topic, see the [Stork search interface documentation](https://stork-search.net/docs/interface).
 
+
 ## Deployment
 
 Ensure your production web server serves the WebAssembly file with the `application/wasm` MIME type. For folks using older versions of Nginx, that might look like the following:
@@ -225,6 +228,7 @@ http {
 ```
 
 For other self-hosting considerations, see the [Stork self-hosting documentation](https://stork-search.net/docs/self-hosting).
+
 
 ## Contributing
 
