@@ -12,8 +12,8 @@ Static sites are, well, static… and thus usually don’t have an application s
 
 Want to see just _how_ fast? Try it out for yourself. Following are some sites that use this plugin:
 
--   [Justin Mayer](https://justinmayer.com)
--   [Open Source Alternatives](https://opensourcealternatives.org)
+* [Justin Mayer](https://justinmayer.com)
+* [Open Source Alternatives](https://opensourcealternatives.org)
 
 
 ## Installation
@@ -84,7 +84,7 @@ For more information, refer to [Stork’s documentation on HTML tag selection](h
 
 **Example**:
 
-To set it to a different selector, you can set it like this (e.g. `primary`).
+To set it to a different selector (for example, `primary`), you can set it like this:
 
 ```python
 STORK_INPUT_OPTIONS = {
@@ -123,7 +123,6 @@ There are two options for serving the necessary JavaScript, WebAssembly, and CSS
 2. Self-host the Stork static assets
 
 The first option is easier to set up. The second option is provided for folks who prefer to self-host everything. After you have decided which option you prefer, follow the relevant section’s instructions below.
-
 
 ### Static Assets — Option 1: Use CDN
 
@@ -236,6 +235,6 @@ Contributions are welcome and much appreciated. Every little bit helps. You can 
 
 To start contributing to this plugin, review the [Contributing to Pelican][] documentation, beginning with the **Contributing Code** section.
 
-[pelican plugins documentation]: https://docs.getpelican.com/en/latest/plugins.html
+[Pelican plugins documentation]: https://docs.getpelican.com/en/latest/plugins.html
 [existing issues]: https://github.com/pelican-plugins/search/issues
-[Contributing to pelican]: https://docs.getpelican.com/en/latest/contribute.html
+[Contributing to Pelican]: https://docs.getpelican.com/en/latest/contribute.html
