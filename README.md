@@ -104,7 +104,7 @@ STORK_INPUT_OPTIONS = {
 ### `STORK_OUTPUT_OPTIONS = ""`
 
 [Output Options](https://stork-search.net/docs/config-ref) can be configured as a `dict`.
-Keep in mind that keys are case sensitive. They mus be lower case.
+Keep in mind that keys are case-sensitive and must be lower case.
 
 **Example**:
 
