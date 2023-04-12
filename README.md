@@ -43,11 +43,21 @@ If you are using Pelican 4.5+ with namespace plugins and don’t have a `PLUGINS
 
 This plugin’s behavior can be customized via Pelican settings. Those settings, and their default values, follow below.
 
-### `SEARCH_MODE = "output"`
+### `STORK_INPUT_OPTIONS = ""`
 
-In addition to plain-text files, Stork can recognize and index HTML and Markdown-formatted content. The default behavior of this plugin is to index generated HTML files, since Stork is good at extracting content from tags, scripts, and styles. But that mode may require a slight theme modification that isn’t necessary when indexing Markdown source (see `SEARCH_HTML_SELECTOR` setting below). That said, indexing Markdown means that markup information may not be removed from the indexed content and will thus be visible in the search preview results. With that caveat aside, if you want to index Markdown source content files instead of the generated HTML output, you can use: `SEARCH_MODE = "source"`
+In addition to plain-text files, Stork can recognize and index HTML and Markdown-formatted content. The default behavior of this plugin is to index generated HTML files, since Stork is good at extracting content from tags, scripts, and styles. But that mode may require a slight theme modification that isn’t necessary when indexing Markdown source (see HTML selector setting below). That said, indexing Markdown means that markup information may not be removed from the indexed content and will thus be visible in the search preview results. With that caveat aside, if you want to index Markdown source content files instead of the generated HTML output, you can set `base_directory` to your content path.
 
-### `SEARCH_HTML_SELECTOR = "main"`
+Any other setting then the output path will toggle the plugin to switch to "source" mode.
+
+**Example**:
+
+```python
+STORK_INPUT_OPTIONS = {
+    base_directory = PATH
+}
+```
+
+#### Stork HTML Selector
 
 By default, Stork looks for `<main>[…]</main>` tags to determine where your main content is located. If such tags do not already exist in your theme’s template files, you can either (1) add `<main>` tags or (2) change the HTML selector that Stork should look for.
 
@@ -72,6 +82,38 @@ To use the default `main` selector, in each of your theme’s relevant template 
 
 For more information, refer to [Stork’s documentation on HTML tag selection](https://stork-search.net/docs/html).
 
+**Example**:
+
+To set it to a different selector (for example, `primary`), you can set it like this:
+
+```python
+STORK_INPUT_OPTIONS = {
+    html_selector = "primary"
+}
+```
+
+Additional [Input Options](https://stork-search.net/docs/config-ref) can be added here as a `dict`.
+
+**Example**:
+
+```python
+STORK_INPUT_OPTIONS = {
+    url_prefix = SITEURL
+}
+```
+
+### `STORK_OUTPUT_OPTIONS = ""`
+
+[Output Options](https://stork-search.net/docs/config-ref) can be configured as a `dict`.
+Keep in mind that keys are case-sensitive and must be lower case.
+
+**Example**:
+
+```python
+STORK_OUTPUT_OPTIONS = {
+    debug = true
+}
+```
 
 ## Static Assets
 
@@ -95,7 +137,11 @@ Add the Stork CSS before the closing `</head>` tag in your theme’s base templa
 If your theme supports dark mode, you may want to also add Stork’s dark CSS file:
 
 ```html
-<link rel="stylesheet" media="screen and (prefers-color-scheme: dark)" href="https://files.stork-search.net/dark.css">
+<link
+    rel="stylesheet"
+    media="screen and (prefers-color-scheme: dark)"
+    href="https://files.stork-search.net/dark.css"
+/>
 ```
 
 #### JavaScript
@@ -105,7 +151,7 @@ Add the following script tags to your theme’s base template, just before your 
 ```html
 <script src="https://files.stork-search.net/releases/v1.5.0/stork.js"></script>
 <script>
-    stork.register("sitesearch", "{{ SITEURL }}/search-index.st")
+    stork.register("sitesearch", "{{ SITEURL }}/search-index.st");
 </script>
 ```
 

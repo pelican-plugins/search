@@ -23,6 +23,18 @@ PTY = True if os.name != "nt" else False
 
 
 @task
+def tests(c):
+    """Run the test suite"""
+    c.run(f"{VENV}/bin/pytest", pty=True)
+
+
+@task
+def test(c):
+    """Just an alias for tests task"""
+    tests(c)
+
+
+@task
 def black(c, check=False, diff=False):
     """Run Black auto-formatter, optionally with `--check` or `--diff`."""
     check_flag, diff_flag = "", ""
