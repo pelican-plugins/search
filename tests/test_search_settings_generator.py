@@ -18,7 +18,7 @@ class TestSearchSettingsGenerator:
             output_path="output",
         )
         assert generator.input_options.get("html_selector") == "foo"
-        assert "SEARCH_HTML_SELECTOR is deprecated" in caplog.text
+        assert "SEARCH_HTML_SELECTOR setting is deprecated" in caplog.text
 
     @pytest.mark.parametrize(
         "deprecated_option", ["SEARCH_HTML_SELECTOR", "SEARCH_MODE"]
@@ -247,7 +247,7 @@ class TestSearchSettingsGenerator:
                 {
                     "path": "save_as",
                     "url": "/url",
-                    "title": '"title"',
+                    "title": "title",
                 }
             ]
 
@@ -266,7 +266,7 @@ class TestSearchSettingsGenerator:
                 {
                     "path": "relative",
                     "url": "/url",
-                    "title": '"title"',
+                    "title": "title",
                 }
             ]
 
@@ -287,12 +287,12 @@ class TestSearchSettingsGenerator:
                 {
                     "path": "save_as",
                     "url": "/url",
-                    "title": '"page"',
+                    "title": "page",
                 },
                 {
                     "path": "save_as",
                     "url": "/url",
-                    "title": '"article"',
+                    "title": "article",
                 },
             ]
 
@@ -317,12 +317,12 @@ class TestSearchSettingsGenerator:
                 {
                     "path": "save_as",
                     "url": "/url",
-                    "title": '"article"',
+                    "title": "article",
                 },
                 {
                     "path": "save_as",
                     "url": "/url",
-                    "title": '"article-fr"',
+                    "title": "article-fr",
                 },
             ]
 

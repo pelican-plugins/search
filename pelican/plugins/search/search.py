@@ -7,7 +7,6 @@ A Pelican plugin to generate an index for static site searches.
 Copyright (c) Justin Mayer
 """
 
-from json import dumps
 import logging
 from pathlib import Path
 from shutil import which
@@ -115,11 +114,13 @@ class SearchSettingsGenerator:
             page_to_index = (
                 page.save_as if self._index_output() else page.relative_source_path
             )
+            # Escape double-quotation marks in the title
+            title = striptags(page.title).replace('"', '\\"')
             input_files.append(
                 {
                     "path": page_to_index,
                     "url": f"/{page.url}",
-                    "title": dumps(striptags(page.title)),
+                    "title": f"{title}",
                 }
             )
 
