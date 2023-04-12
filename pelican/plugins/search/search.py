@@ -34,21 +34,21 @@ class SearchSettingsGenerator:
         self.input_options.setdefault("html_selector", "main")
         self.input_options.setdefault("base_directory", self.output_path)
 
-        # handle deprecated config variables
+        # Handle deprecated settings
         if settings.get("SEARCH_HTML_SELECTOR") and not settings.get(
             "STORK_INPUT_OPTIONS"
         ):
             logger.warning(
-                "SEARCH_HTML_SELECTOR is deprecated, "
+                "The SEARCH_HTML_SELECTOR setting is deprecated "
                 "and will be removed in a future version. "
-                "use STORK_INPUT_OPTIONS instead."
+                "Use the STORK_INPUT_OPTIONS setting instead."
             )
             self.input_options["html_selector"] = settings.get("SEARCH_HTML_SELECTOR")
         if settings.get("SEARCH_MODE") and not settings.get("STORK_INPUT_OPTIONS"):
             logger.warning(
-                f"SEARCH_MODE = {settings.get('SEARCH_MODE')} is deprecated, "
+                f"SEARCH_MODE = {settings.get('SEARCH_MODE')} is deprecated "
                 "and will be removed in a future version. "
-                "use STORK_INPUT_OPTIONS instead."
+                "Use the STORK_INPUT_OPTIONS setting instead."
             )
             self.input_options["base_directory"] = self.output_path
             if settings.get("SEARCH_MODE") == "source":
