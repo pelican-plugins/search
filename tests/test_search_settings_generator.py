@@ -361,3 +361,26 @@ class TestSearchSettingsGenerator:
                     "title": "",
                 },
             ]
+
+        @pytest.mark.parametrize("non_printable", ["\u00a0", "\u200B", "\uFEFF"])
+        def test_unicode_non_printable_chars_stripped(self, non_printable):
+            """Non printable chars should be all converted to a standard space"""
+            generator = SearchSettingsGenerator(
+                context={
+                    "pages": [
+                        self.PageArticleMock(f"title with nbsp{non_printable}char")
+                    ],
+                    "articles": [],
+                },
+                settings={"TEMPLATE_PAGES": []},
+                path=None,
+                theme=None,
+                output_path="output",
+            )
+            assert generator.get_input_files() == [
+                {
+                    "path": "save_as",
+                    "url": "/url",
+                    "title": "title with nbsp char",
+                }
+            ]
