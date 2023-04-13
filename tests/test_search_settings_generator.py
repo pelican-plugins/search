@@ -5,6 +5,8 @@ import pytest
 from pytest_mock import MockerFixture
 
 from pelican.plugins.search.search import SearchSettingsGenerator
+import os
+import chardet
 
 
 class TestSearchSettingsGenerator:
@@ -139,6 +141,33 @@ class TestSearchSettingsGenerator:
                 generator.build_search_index(Path("output"))
 
     class TestGenerateStorkSettings:
+        def test_output_options_encoding(self, mocker: MockerFixture):
+            mocker.patch(
+                "pelican.plugins.search.SearchSettingsGenerator.get_input_files",
+                return_value=[{
+                    "path": "content/utf-8.md",
+                    "url": "https://blog.example.com/utf-8",
+                    "title": "†öζ好Üس⚡⚽",
+                }],
+            )
+            generator = SearchSettingsGenerator(
+                context={},
+                settings={},
+                path=None,
+                theme=None,
+                output_path="output",
+            )
+            try:
+                generator.generate_stork_settings(Path("utf-8-foo"))
+            except Exception:
+                os.remove("utf-8-foo")
+                raise UnicodeError
+            else:
+                with open(Path("utf-8-foo"), "rb") as f:
+                    detect = chardet.detect(f.read())
+                os.remove("utf-8-foo")
+                assert detect["encoding"] == "utf-8"
+
         def test_output_options_set(self, mocker: MockerFixture):
             rtoml_patch = mocker.patch("pelican.plugins.search.rtoml.dump")
             mocker.patch(
