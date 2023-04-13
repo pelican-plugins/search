@@ -94,7 +94,7 @@ class SearchSettingsGenerator:
             search_settings["output"] = self.output_options
 
         # Write the search settings file to disk
-        with search_settings_path.open("w") as fd:
+        with search_settings_path.open("w", encoding="utf-8") as fd:
             rtoml.dump(obj=search_settings, file=fd)
 
     def _index_output(self) -> bool:
