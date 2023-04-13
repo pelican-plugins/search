@@ -1,12 +1,12 @@
 import logging
+import os
 from pathlib import Path
 
+import chardet
 import pytest
 from pytest_mock import MockerFixture
 
 from pelican.plugins.search.search import SearchSettingsGenerator
-import os
-import chardet
 
 
 class TestSearchSettingsGenerator:
@@ -144,11 +144,13 @@ class TestSearchSettingsGenerator:
         def test_output_options_encoding(self, mocker: MockerFixture):
             mocker.patch(
                 "pelican.plugins.search.SearchSettingsGenerator.get_input_files",
-                return_value=[{
-                    "path": "content/utf-8.md",
-                    "url": "https://blog.example.com/utf-8",
-                    "title": "†öζ好Üس⚡⚽",
-                }],
+                return_value=[
+                    {
+                        "path": "content/utf-8.md",
+                        "url": "https://blog.example.com/utf-8",
+                        "title": "†öζ好Üس⚡⚽",
+                    }
+                ],
             )
             generator = SearchSettingsGenerator(
                 context={},
