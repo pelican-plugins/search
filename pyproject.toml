@@ -52,7 +52,7 @@ markdown = ["markdown"]
 [tool.autopub]
 project-name = "Search"
 git-username = "botpub"
-git-email = "botpub@autopub.rocks"
+git-email = "52496925+botpub@users.noreply.github.com"
 
 [tool.flake8]
 extend-ignore = ["E203"]
