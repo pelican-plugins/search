@@ -115,12 +115,15 @@ class SearchSettingsGenerator:
                 page.save_as if self._index_output() else page.relative_source_path
             )
             # Escape double-quotation marks in the title
-            title = striptags(page.title).replace('"', '\\"')
+            title = "".join(
+                c if c.isprintable() else " "
+                for c in striptags(page.title).replace('"', '\\"')
+            )
             input_files.append(
                 {
                     "path": page_to_index,
                     "url": f"/{page.url}",
-                    "title": f"{title}",
+                    "title": title,
                 }
             )
 
