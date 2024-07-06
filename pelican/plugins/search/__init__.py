@@ -1,1 +1,1 @@
-from .search import *  # NOQA
+from .search import *  # noqa: F403,PGH004,RUF100

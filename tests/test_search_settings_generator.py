@@ -10,6 +10,8 @@ from pelican.plugins.search.search import SearchSettingsGenerator
 
 
 class TestSearchSettingsGenerator:
+    """Test the search settings generator."""
+
     def test_search_html_selector_deprecation(self, caplog):
         test_settings = {"SEARCH_HTML_SELECTOR": "foo"}
         generator = SearchSettingsGenerator(
@@ -161,9 +163,9 @@ class TestSearchSettingsGenerator:
             )
             try:
                 generator.generate_stork_settings(Path("utf-8-foo"))
-            except Exception:
+            except Exception as e:
                 os.remove("utf-8-foo")
-                raise UnicodeError
+                raise UnicodeError from e
             else:
                 with open(Path("utf-8-foo"), "rb") as f:
                     detect = chardet.detect(f.read())
@@ -242,7 +244,7 @@ class TestSearchSettingsGenerator:
 
     class TestGetInputFiles:
         class PageArticleMock:
-            def __init__(self, title, translations=[]):
+            def __init__(self, title, translations=[]):  # noqa: B006
                 self._title = title
                 self._translations = translations
 

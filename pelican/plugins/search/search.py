@@ -1,8 +1,4 @@
-"""
-Search
-======
-
-A Pelican plugin to generate an index for static site searches.
+"""Search plugin for Pelican to generate an index for static site searches.
 
 Copyright (c) Justin Mayer
 """
@@ -22,6 +18,8 @@ logger = logging.getLogger(__name__)
 
 
 class SearchSettingsGenerator:
+    """Generate site search settings."""
+
     def __init__(self, context, settings, path, theme, output_path, *null):
         self.output_path = output_path
         self.context = context
@@ -81,7 +79,8 @@ class SearchSettingsGenerator:
                 check=True,
             )
         except subprocess.CalledProcessError as e:
-            raise Exception("".join(["Search plugin reported ", e.stdout, e.stderr]))
+            error_output = "".join(["Search plugin reported ", e.stdout, e.stderr])
+            raise Exception(error_output) from e
 
         return output.stdout
 
@@ -135,8 +134,10 @@ class SearchSettingsGenerator:
 
 
 def get_generators(generators):
+    """Get the search settings generator."""
     return SearchSettingsGenerator
 
 
 def register():
+    """Register the plugin."""
     signals.get_generators.connect(get_generators)
