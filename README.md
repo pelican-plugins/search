@@ -2,6 +2,8 @@
 
 [![Build Status](https://img.shields.io/github/actions/workflow/status/pelican-plugins/search/main.yml?branch=main)](https://github.com/pelican-plugins/search/actions)
 [![PyPI Version](https://img.shields.io/pypi/v/pelican-search)](https://pypi.org/project/pelican-search/)
+[![Downloads](https://img.shields.io/pypi/dm/pelican-search)](https://pypi.org/project/pelican-search/)
+![License](https://img.shields.io/pypi/l/pelican-search?color=blue)
 
 This plugin generates an index for searching content on a Pelican-powered site.
 
@@ -234,6 +236,10 @@ For other self-hosting considerations, see the [Stork self-hosting documentation
 Contributions are welcome and much appreciated. Every little bit helps. You can contribute by improving the documentation, adding missing features, and fixing bugs. You can also help out by reviewing and commenting on [existing issues][].
 
 To start contributing to this plugin, review the [Contributing to Pelican][] documentation, beginning with the **Contributing Code** section.
+
+## License
+
+This project is licensed under the AGPL 3.0 license.
 
 [Pelican plugins documentation]: https://docs.getpelican.com/en/latest/plugins.html
 [existing issues]: https://github.com/pelican-plugins/search/issues
