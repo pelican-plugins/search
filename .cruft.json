@@ -1,0 +1,27 @@
+{
+  "template": "https://github.com/getpelican/cookiecutter-pelican-plugin",
+  "commit": "bbc42b1423d34ebf2c661e5f6e7b51154e570f9f",
+  "checkout": null,
+  "context": {
+    "cookiecutter": {
+      "plugin_name": "Search",
+      "repo_name": "search",
+      "package_name": "search",
+      "distribution_name": "pelican-search",
+      "version": "1.1.0",
+      "description": "Pelican plugin that indexes content and enables static site searches",
+      "authors": "{name = \"Justin Mayer\"}, email = \"entroP@gmail.com\"}",
+      "keywords": "\"pelican\", \"plugin\", \"search\", \"index\"",
+      "readme": "README.md",
+      "contributing": "CONTRIBUTING.md",
+      "license": "GNU Affero General Public License v3|AGPL-3.0",
+      "repo_url": "https://github.com/pelican-plugins/search",
+      "dev_status": "5 - Production/Stable",
+      "tests_exist": true,
+      "python_version": ">=3.8.1,<4.0",
+      "pelican_version": ">=4.5",
+      "_template": "https://github.com/getpelican/cookiecutter-pelican-plugin"
+    }
+  },
+  "directory": null
+}
