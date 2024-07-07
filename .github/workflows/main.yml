@@ -5,6 +5,9 @@ on: [push, pull_request]
 env:
   PYTEST_ADDOPTS: "--color=yes"
 
+permissions:
+  contents: read
+
 jobs:
   test:
     name: Test - Python ${{ matrix.python-version }}
@@ -65,8 +68,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GH_TOKEN }}
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -83,7 +84,7 @@ jobs:
       - name: Publish
         if: ${{ steps.check_release.outputs.autopub_release=='true' }}
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           autopub prepare
           autopub commit
