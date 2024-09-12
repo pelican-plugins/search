@@ -45,7 +45,7 @@ If you are using Pelican 4.5+ with namespace plugins and don’t have a `PLUGINS
 
 This plugin’s behavior can be customized via Pelican settings. Those settings, and their default values, follow below.
 
-### `STORK_INPUT_OPTIONS = ""`
+### `STORK_INPUT_OPTIONS = {}`
 
 In addition to plain-text files, Stork can recognize and index HTML and Markdown-formatted content. The default behavior of this plugin is to index generated HTML files, since Stork is good at extracting content from tags, scripts, and styles. But that mode may require a slight theme modification that isn’t necessary when indexing Markdown source (see HTML selector setting below). That said, indexing Markdown means that markup information may not be removed from the indexed content and will thus be visible in the search preview results. With that caveat aside, if you want to index Markdown source content files instead of the generated HTML output, you can set `base_directory` to your content path.
 
@@ -55,7 +55,7 @@ Any other setting then the output path will toggle the plugin to switch to "sour
 
 ```python
 STORK_INPUT_OPTIONS = {
-    base_directory = PATH
+    "base_directory" : PATH
 }
 ```
 
@@ -90,7 +90,7 @@ To set it to a different selector (for example, `primary`), you can set it like 
 
 ```python
 STORK_INPUT_OPTIONS = {
-    html_selector = "primary"
+    "html_selector" : "primary"
 }
 ```
 
@@ -100,11 +100,11 @@ Additional [Input Options](https://stork-search.net/docs/config-ref) can be adde
 
 ```python
 STORK_INPUT_OPTIONS = {
-    url_prefix = SITEURL
+    "url_prefix" : SITEURL
 }
 ```
 
-### `STORK_OUTPUT_OPTIONS = ""`
+### `STORK_OUTPUT_OPTIONS = {}`
 
 [Output Options](https://stork-search.net/docs/config-ref) can be configured as a `dict`.
 Keep in mind that keys are case-sensitive and must be lower case.
@@ -113,7 +113,7 @@ Keep in mind that keys are case-sensitive and must be lower case.
 
 ```python
 STORK_OUTPUT_OPTIONS = {
-    debug = true
+    "debug" : True
 }
 ```
 
