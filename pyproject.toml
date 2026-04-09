@@ -1,6 +1,6 @@
 [project]
 name = "pelican-search"
-version = "1.1.0"
+version = "1.1.1"
 description = "Pelican plugin that indexes content and enables static site searches"
 authors = [{name = "Justin Mayer", email = "entroP@gmail.com"}]
 license = {text = "AGPL-3.0"}

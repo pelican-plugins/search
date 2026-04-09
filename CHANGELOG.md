@@ -1,6 +1,16 @@
 CHANGELOG
 =========
 
+1.1.1 - 2026-04-09
+------------------
+
+- Write `search.toml` with UTF-8 encoding
+- Support Python 3.13 & 3.14
+- Drop Python 3.8 & 3.9 support
+
+Contributed by [Justin Mayer](https://github.com/justinmayer) via [PR #41](https://github.com/pelican-plugins/search/pull/41/)
+
+
 1.1.0 - 2023-04-12
 ------------------
 
