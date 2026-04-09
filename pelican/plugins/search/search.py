@@ -7,7 +7,6 @@ import logging
 from pathlib import Path
 from shutil import which
 import subprocess
-from typing import Dict, List
 
 from jinja2.filters import do_striptags as striptags
 import rtoml
@@ -101,7 +100,7 @@ class SearchSettingsGenerator:
 
     def get_input_files(
         self,
-    ) -> List[Dict]:
+    ) -> list[dict]:
         pages = self.context["pages"] + self.context["articles"]
 
         for article in self.context["articles"]:
