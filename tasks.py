@@ -7,6 +7,11 @@ from shutil import which
 from invoke import task
 
 logger = logging.getLogger(__name__)
+level = logging.INFO
+logger.setLevel(level)
+console_handler = logging.StreamHandler()
+console_handler.setLevel(level)
+logger.addHandler(console_handler)
 
 PKG_NAME = "search"
 PKG_PATH = Path(f"pelican/plugins/{PKG_NAME}")
@@ -18,11 +23,11 @@ VENV = str(VENV_PATH.expanduser())
 BIN_DIR = "bin" if os.name != "nt" else "Scripts"
 VENV_BIN = Path(VENV) / Path(BIN_DIR)
 
-TOOLS = ("cruft", "pdm", "pre-commit")
+TOOLS = ("cruft", "pdm", "prek")
 PDM = which("pdm") if which("pdm") else (VENV_BIN / "pdm")
 CMD_PREFIX = f"{VENV_BIN}/" if ACTIVE_VENV else f"{PDM} run "
 CRUFT = which("cruft") if which("cruft") else f"{CMD_PREFIX}cruft"
-PRECOMMIT = which("pre-commit") if which("pre-commit") else f"{CMD_PREFIX}pre-commit"
+PRECOMMIT = which("prek") if which("prek") else f"{CMD_PREFIX}prek"
 PTY = os.name != "nt"
 
 
@@ -47,20 +52,22 @@ def format(c, check=False, diff=False):
 
 
 @task
-def ruff(c, fix=False, diff=False):
+def ruff(c, concise=False, fix=False, diff=False):
     """Run Ruff to ensure code meets project standards."""
-    diff_flag, fix_flag = "", ""
+    concise_flag, fix_flag, diff_flag = "", "", ""
+    if concise:
+        concise_flag = "--output-format=concise"
     if fix:
         fix_flag = "--fix"
     if diff:
         diff_flag = "--diff"
-    c.run(f"{CMD_PREFIX}ruff check {diff_flag} {fix_flag} .", pty=PTY)
+    c.run(f"{CMD_PREFIX}ruff check {concise_flag} {diff_flag} {fix_flag} .", pty=PTY)
 
 
 @task
-def lint(c, fix=False, diff=False):
+def lint(c, concise=False, fix=False, diff=False):
     """Check code style via linting tools."""
-    ruff(c, fix=fix, diff=diff)
+    ruff(c, concise=concise, fix=fix, diff=diff)
     format(c, check=(not fix), diff=diff)
 
 
