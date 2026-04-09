@@ -131,7 +131,7 @@ class TestSearchSettingsGenerator:
             )
 
             with pytest.raises(
-                Exception, match="Stork must be installed and available on \\$PATH."
+                Exception, match=r"Stork must be installed and available on \$PATH."
             ):
                 generator = SearchSettingsGenerator(
                     context={},

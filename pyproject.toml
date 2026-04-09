@@ -15,11 +15,11 @@ classifiers = [
     "License :: OSI Approved :: GNU Affero General Public License v3",
     "Operating System :: OS Independent",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.8",
-    "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
     "Topic :: Internet :: WWW/HTTP",
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
@@ -30,21 +30,21 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/pelican-plugins/search"
+"Homepage" = "https://github.com/pelican-plugins/search"
 "Issue Tracker" = "https://github.com/pelican-plugins/search/issues"
-Funding = "https://donate.getpelican.com/"
+"Changelog" = "https://github.com/pelican-plugins/search/blob/main/CHANGELOG.md"
+"Funding" = "https://donate.getpelican.com/"
 
 [project.optional-dependencies]
 markdown = ["markdown>=3.4"]
 
-[tool.pdm]
-
-[tool.pdm.dev-dependencies]
+[dependency-groups]
 lint = [
     "invoke>=2.2",
-    "ruff>=0.5.0,<0.6.0"
+    "ruff>=0.15.9,<1.0.0",
 ]
 test = [
+    "invoke>=2.2",
     "chardet>=5.2",
     "markdown>=3.4",
     "pytest>=7.0",
@@ -59,7 +59,7 @@ source-includes = [
     "CONTRIBUTING.md",
 ]
 includes = ["pelican/"]
-excludes = ["**/.DS_Store", "**/test_data/**", "tasks.py"]
+excludes = ["**/.DS_Store"]
 
 [tool.autopub]
 project-name = "Search"
